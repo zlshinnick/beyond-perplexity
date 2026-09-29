@@ -4,7 +4,7 @@ Temporary **Coming soon** page for *Lasting Effects of Abstract Pretraining Beyo
 
 Live: https://zlshinnick.github.io/beyond-perplexity/
 
-The page follows the original [Procedural Pretraining](https://zlshinnick.github.io/procedural-pretraining-page/) typography and layout: Inter, Source Serif 4, a centered 960px content width, a compact header, and a light background. The title and custom connected-node logo use warm orange.
+The page matches the [Procedural Core coming-soon page](https://zlshinnick.github.io/procedural-core/): a compact header, centered project mark and status badge, Source Serif 4 heading, Inter body text, and a white-to-soft-gray background. Beyond Perplexity retains its warm orange accent, connected-node mark, authors, and affiliation logos. Logos form a single row on desktop and a two-column grid on mobile.
 
 ## Local preview
 
@@ -22,6 +22,7 @@ The complete research site is preserved on the **`research-page` branch**, start
 
 - `assets/hero-mark.svg`: custom vector mark representing connected reasoning steps.
 - `assets/favicon.svg`: matching browser icon.
-- Institution logos come from the supplied Procedural Pretraining reference site. Only Adelaide University, AIML, and Idiap logos are used; affiliations follow the supplied paper.
+- Adelaide University, AIML, and Idiap logos come from the supplied Procedural Pretraining reference site; affiliations follow the supplied paper.
+- `assets/logo-metacognition.png`: the original, unmodified Metacognition logo supplied by the user.
 
-Fonts load from Google Fonts with system fallbacks. No analytics, forms, or third-party scripts are included.
+Fonts are self-hosted, with their SIL Open Font License files in `assets/font-licenses/`. No analytics, forms, or third-party scripts are included.
