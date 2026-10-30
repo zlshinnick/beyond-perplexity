@@ -10,11 +10,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zlshinnick.github.io/beyond-perplexity/">
   <link rel="canonical" href="https://zlshinnick.github.io/beyond-perplexity/">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=crimson">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=cherry">
   <link rel="stylesheet" href="style.css">
   <script src="script.js?v=core-final" defer></script>
   <link rel="stylesheet" href="academic.css">
-  <link rel="stylesheet" href="reference-theme.css?v=research-diagram">
+  <link rel="stylesheet" href="reference-theme.css?v=cherry-diagram">
 
 <meta name="citation_title" content="Lasting Effects of Abstract Pretraining Beyond Perplexity">
 <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.38764">
@@ -47,8 +47,8 @@
               <g fill="none" stroke="#737987" stroke-width="1.2" marker-end="url(#stack-arrow)"><path d="M29 41H76"/><path d="M89 41H136"/><path d="M149 41H196"/></g>
               <g class="operation-label"><text x="53" y="30">push A</text><text x="113" y="30">push B</text><text x="173" y="30">pop</text></g>
               <g fill="none" stroke="#c3c7cf" stroke-width="1.2"><path d="M7 88V126H43V88" stroke-dasharray="3 3"/><path d="M67 88V126H103V88"/><path d="M127 58V126H163V58"/><path d="M187 88V126H223V88"/></g>
-              <g fill="#e2efec" stroke="#528e82"><rect x="69" y="96" width="32" height="27"/><rect x="129" y="96" width="32" height="27"/><rect x="189" y="96" width="32" height="27"/></g>
-              <rect x="129" y="66" width="32" height="27" fill="#eee8f6" stroke="#8874ae"/>
+              <g fill="#e5eee9" stroke="#6f9286"><rect x="69" y="96" width="32" height="27"/><rect x="129" y="96" width="32" height="27"/><rect x="189" y="96" width="32" height="27"/></g>
+              <rect x="129" y="66" width="32" height="27" fill="#eceaf2" stroke="#8c859e"/>
               <g class="stack-label"><text x="85" y="114">A</text><text x="145" y="114">A</text><text x="205" y="114">A</text><text x="145" y="84">B</text></g>
               <g class="state-label"><text x="25" y="145">empty</text><text x="85" y="145">A</text><text x="145" y="145">B on top</text><text x="205" y="145">A remains</text></g>
             </svg>
@@ -74,9 +74,9 @@
               <defs><marker id="graph-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#737987"/></marker></defs>
               <path d="M55 36V75H90 M122.5 92V134H140" fill="none" stroke="#737987" stroke-width="1.5" marker-end="url(#graph-arrow)"/>
               <text x="63" y="58" class="edge-label">born in</text><text x="131" y="109" class="edge-label">located in</text>
-              <rect x="10" y="8" width="80" height="30" fill="#eee8f6" stroke="#8874ae"/><text x="50" y="28" class="node-label">Mira</text>
-              <rect x="90" y="62" width="65" height="30" fill="#e2efec" stroke="#528e82"/><text x="122.5" y="82" class="node-label">Luma</text>
-              <rect x="140" y="120" width="80" height="28" fill="#fff2f4" stroke="#b4233d"/><text x="180" y="139" class="node-label answer-label">Nori</text>
+              <rect x="10" y="8" width="80" height="30" fill="#eceaf2" stroke="#8c859e"/><text x="50" y="28" class="node-label">Mira</text>
+              <rect x="90" y="62" width="65" height="30" fill="#e5eee9" stroke="#6f9286"/><text x="122.5" y="82" class="node-label">Luma</text>
+              <rect x="140" y="120" width="80" height="28" fill="#fcf4f4" stroke="#a61e3d"/><text x="180" y="139" class="node-label answer-label">Nori</text>
             </svg>
           </div>
           <h2>Multi-hop QA</h2><div class="stage-meta">Task-specific fine-tuning</div>
@@ -87,7 +87,7 @@
     </section>
     <section class="overview section container" id="overview">
       <div class="section-kicker">The central finding</div>
-      <div class="overview-layout"><h2>Reasoning starts before language.</h2><div class="prose"><p>A brief warm-up on abstract tasks improves multi-hop reasoning after billions of language-training tokens.</p><p>Initial STACK training improves multi-hop QA, with gains concentrated on sequential composition. In controlled experiments, it also accelerates learning of longer reasoning chains. These effects persist through language pretraining without a corresponding improvement in language-modeling loss.</p></div></div>
+      <div class="overview-layout"><h2>Reasoning starts before language.</h2><div class="prose"><p>A brief warm-up on a simple abstract task based on stack memory operations improves multi-hop reasoning, with gains concentrated on sequential composition. In controlled experiments, it also accelerates learning of longer reasoning chains. These effects persist after billions of language-training tokens without a corresponding improvement in language-modeling loss.</p></div></div>
 
       <div class="metrics"><div><strong>+3.9<span> F1</span></strong><p>MuSiQue gain after fine-tuning<br><span>SmolLM-135M · 2.69B language tokens</span></p></div><div><strong>~80M</strong><p>Additional abstract tokens<br><span>~3% at 135M · ~1.1% at 360M</span></p></div><div><strong>135M / 360M</strong><p>SmolLM-135M &amp; SmolLM-360M<br><span>Three multi-hop QA benchmarks</span></p></div></div>
     </section>
