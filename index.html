@@ -10,11 +10,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zlshinnick.github.io/beyond-perplexity/">
   <link rel="canonical" href="https://zlshinnick.github.io/beyond-perplexity/">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=crimson">
   <link rel="stylesheet" href="style.css">
   <script src="script.js?v=core-final" defer></script>
   <link rel="stylesheet" href="academic.css">
-  <link rel="stylesheet" href="reference-theme.css?v=beyond-review-final">
+  <link rel="stylesheet" href="reference-theme.css?v=crimson">
 
 <meta name="citation_title" content="Lasting Effects of Abstract Pretraining Beyond Perplexity">
 <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.38764">
@@ -38,18 +38,48 @@
 
 <div class="authors"><a href="mailto:zachary.shinnick@adelaide.edu.au">Zachary Shinnick<sup>1,*</sup></a><span>Hemanth Saratchandran<sup>1</sup></span><span>Damien Teney<sup>2</sup></span><span>Anton van den Hengel<sup>1,3</sup></span></div><div class="affiliations"><span><sup>1</sup> AIML, Adelaide University</span><span><sup>2</sup> Idiap Research Institute</span><span><sup>3</sup> Metacognition AI</span></div>
       <div class="hero-actions"><a class="button primary" href="https://arxiv.org/pdf/2609.38764">Read the paper <span aria-hidden="true">↗</span></a><a class="button" href="#method">See how it works</a></div>
-      <div class="pipeline" aria-label="Training pipeline: abstract warm-up, then language pretraining, then downstream fine-tuning">
-        <div class="pipeline-stage abstract-stage"><div class="stage-number">01 <span>Initial abstract training</span></div><div class="token-demo stack-teaser" aria-hidden="true"><span class="answer">C</span><span class="answer">A</span></div><h2>Abstract warm-up</h2><div class="stage-meta">STACK · ~80M tokens</div></div>
+      <div class="pipeline visual-pipeline" aria-label="Training pipeline: abstract warm-up, then language pretraining, then downstream fine-tuning">
+        <div class="pipeline-stage abstract-stage">
+          <div class="stage-number">01 · STRUCTURE</div>
+          <div class="stage-art block-art" role="img" aria-label="Illustrative abstract stack: colourful symbol blocks, with the last block on top">
+            <div class="block-orbit orbit-one"></div><div class="block-orbit orbit-two"></div>
+            <div class="stack-block block-c"><span>✦</span><small>C</small></div>
+            <div class="stack-block block-b"><span>●</span><small>B</small></div>
+            <div class="stack-block block-a"><span>◆</span><small>A</small></div>
+            <span class="stack-top">← TOP</span><div class="block-base"></div>
+          </div>
+          <h2>Abstract warm-up</h2><div class="stage-meta">STACK · ~80M tokens</div>
+          <p class="visual-note">Symbols. Operations. Structure.</p>
+        </div>
         <span class="pipeline-connector" aria-hidden="true">→</span>
-        <div class="pipeline-stage language-stage"><div class="stage-number">02 <span>Standard pretraining</span></div><div class="language-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div><h2>Natural language</h2><div class="stage-meta">FineWeb-Edu · 2.69–7.2B tokens</div></div>
+        <div class="pipeline-stage language-stage">
+          <div class="stage-number">02 · LANGUAGE</div>
+          <div class="stage-art language-art">
+            <div class="text-sheet"><span class="sheet-label"><i></i> A WORLD OF WORDS</span><p>The <mark>Moon</mark> reflects sunlight.<br>Its gravity helps shape<br>the <mark class="teal-mark">ocean’s tides.</mark></p><div class="word-flow"><span>Ideas</span><b>↔</b><span>Connections</span></div></div>
+          </div>
+          <h2>Natural language</h2><div class="stage-meta">FineWeb-Edu · 2.69–7.2B tokens</div>
+          <p class="visual-note">Learn from natural-language text.</p>
+        </div>
         <span class="pipeline-connector" aria-hidden="true">→</span>
-        <div class="pipeline-stage reasoning-stage"><div class="stage-number">03 <span>Task-specific fine-tuning</span></div><div class="reasoning-chain" aria-hidden="true"><b>A</b><i></i><b>B</b><i></i><b>C</b><i></i><b>?</b></div><h2>Multi-hop QA</h2><div class="stage-meta">Task-specific fine-tuning</div></div>
+        <div class="pipeline-stage reasoning-stage">
+          <div class="stage-number">03 · REASONING</div>
+          <div class="stage-art qa-art">
+            <div class="qa-question">Which country was Mira born in?</div>
+            <div class="hop hop-one"><span class="hop-number">1</span><span>Mira was born in <strong>Luma.</strong></span></div>
+            <div class="hop-link" aria-hidden="true">↓</div>
+            <div class="hop hop-two"><span class="hop-number">2</span><span>Luma is a city in <strong>Nori.</strong></span></div>
+            <div class="hop-link" aria-hidden="true">↓</div>
+            <div class="qa-answer"><span>ANSWER</span><strong>Nori</strong><b aria-hidden="true">✓</b></div>
+          </div>
+          <h2>Multi-hop QA</h2><div class="stage-meta">Task-specific fine-tuning</div>
+          <p class="visual-note">Connect facts to reach an answer.</p>
+        </div>
+        <div class="pipeline-example-note">Illustrative examples · fictional names in the QA example</div>
       </div>
-      <p class="pipeline-caption">~80M additional abstract tokens, followed by 2.69B language tokens at 135M or 7.2B at 360M. Both conditions use the same language budget and task-specific fine-tuning.</p>
     </section>
     <section class="overview section container" id="overview">
       <div class="section-kicker">The central finding</div>
-      <div class="overview-layout"><h2>Similar perplexity. <em>Different capabilities.</em></h2><div class="prose"><p>We compare language-only pretraining from random initialization with an additional initial phase on abstract stack operations. Both models then receive the same language-pretraining budget and task-specific fine-tuning.</p><p>Initial STACK training improves multi-hop QA, with gains concentrated on sequential composition. In controlled experiments, it also accelerates learning of longer reasoning chains. These effects persist through language pretraining without a corresponding improvement in language-modeling loss.</p></div></div>
+      <div class="overview-layout"><h2>Reasoning starts before language.</h2><div class="prose"><p>A brief warm-up on abstract tasks improves multi-hop reasoning after billions of language-training tokens.</p><p>Initial STACK training improves multi-hop QA, with gains concentrated on sequential composition. In controlled experiments, it also accelerates learning of longer reasoning chains. These effects persist through language pretraining without a corresponding improvement in language-modeling loss.</p></div></div>
 
       <div class="metrics"><div><strong>+3.9<span> F1</span></strong><p>MuSiQue gain after fine-tuning<br><span>SmolLM-135M · 2.69B language tokens</span></p></div><div><strong>~80M</strong><p>Additional abstract tokens<br><span>~3% at 135M · ~1.1% at 360M</span></p></div><div><strong>135M / 360M</strong><p>SmolLM-135M &amp; SmolLM-360M<br><span>Three multi-hop QA benchmarks</span></p></div></div>
     </section>
