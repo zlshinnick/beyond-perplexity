@@ -70,7 +70,7 @@ function renderLossChart() {
     ${xTicks.map(tick => `<text class="chart-label" x="${x(tick)}" y="197" text-anchor="middle">${tick}</text>`).join('')}
     <path class="curve-random" d="${line(1)}"/><path class="curve-stack" d="${line(2)}"/>
     <line class="checkpoint-line" x1="${x(selected[0])}" y1="14" x2="${x(selected[0])}" y2="179"/>
-    <circle cx="${x(selected[0])}" cy="${y(selected[1])}" r="4" fill="#78859a" stroke="white" stroke-width="1.5"/>
+    <circle cx="${x(selected[0])}" cy="${y(selected[1])}" r="4" fill="var(--chart-baseline)" stroke="white" stroke-width="1.5"/>
     <circle cx="${x(selected[0])}" cy="${y(selected[2])}" r="3.5" fill="var(--accent)" stroke="white" stroke-width="1"/>
     <text class="chart-label" x="264" y="218" text-anchor="middle">FineWeb-Edu tokens (billions)</text>
   </svg>`;
