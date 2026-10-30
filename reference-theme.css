@@ -69,7 +69,7 @@ body .hero .authors>div>span{margin:0}body .hero .institution-row img:last-child
 :root{--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body .hero.container{padding-left:24px;padding-right:24px}
 
 
-:root{--accent:#A61E3D;--accent-dark:#80162E;--hero-accent:#A61E3D;--hero-fill:#FCF4F4;--takeaway-border:#D6ABB6;--soft:#FCF4F4;--hero-title:#A61E3D}
+:root{--accent:#C62828;--accent-dark:#A51D1D;--hero-accent:#C62828;--hero-fill:#FFF5F4;--takeaway-border:#E5B0AB;--soft:#FFF5F4;--hero-title:#C62828}
 body .section-heading h2 em,body .overview-layout h2 em{font:inherit;color:inherit}
 body .hero h1{margin-bottom:28px}
 body .hero>.authors{display:flex;gap:4px 16px;justify-content:center;flex-wrap:wrap}
@@ -187,3 +187,5 @@ body .pipeline-example-note{grid-column:1/-1;font:9px/1.5 var(--sans);color:#767
 @media(max-width:768px){body .visual-pipeline{grid-template-columns:1fr;gap:12px;padding:16px}body .visual-pipeline .pipeline-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(140px,1fr);grid-template-rows:auto auto auto 1fr;gap:3px 16px;padding:16px}body .visual-pipeline .stage-number{grid-column:1;grid-row:1}body .visual-pipeline .pipeline-stage h2{grid-column:1;grid-row:2;margin:10px 0 4px}body .visual-pipeline .stage-meta{grid-column:1;grid-row:3}body .visual-pipeline .visual-note{grid-column:1;grid-row:4}body .visual-pipeline .stage-art{grid-column:2;grid-row:1/5;margin:0;height:200px}body .visual-pipeline .pipeline-connector{display:none}}
 @media(max-width:480px){body .visual-pipeline .pipeline-stage{display:flex;padding:16px}body .visual-pipeline .stage-art{width:100%;max-width:270px;align-self:center;margin-top:12px;height:200px}body .visual-pipeline .pipeline-stage h2{margin-top:16px}body .visual-pipeline .stage-meta{font-size:10px}body .visual-note{font-size:11px}body .language-example{font-size:17px}body .stack-top{font-size:8px;left:calc(50% + 47px)}}
 @media(max-width:480px){body .qa-graph .edge-label{font-size:13px}body .qa-graph .node-label{font-size:16px}body .stack-timeline .operation-label{font-size:12px}body .stack-timeline .state-label{font-size:11px}body .stack-timeline .stack-label{font-size:16px}}
+
+body .stack-timeline .stack-label text{fill:#fff}body .stack-timeline .stack-label .token-b{fill:#352900}
