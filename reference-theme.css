@@ -270,3 +270,6 @@ body .bar-track{background:#EDE8DE}
 body .segmented{background:#EDE8DE;border-color:#DDD5C7}
 body .paper-card .tag{background:#FFF0D3;color:#58503A}
 body .citation-box{background:#F7F2E9;border-color:#DDD5C7}
+
+/* Knock out white raster backdrops against the light hero without redrawing logos. */
+body .hero .institution-row img.logo-blend{mix-blend-mode:multiply;background:transparent}
