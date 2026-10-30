@@ -220,7 +220,7 @@ body .footer{border-color:#DEDFE4}
 @media(max-width:480px){body .qa-graph .node-label{font-size:14px}body .qa-graph .edge-label{font-size:11px}}
 
 /* Small, warm highlights keep the research layout welcoming. */
-body .overview .metrics>div:first-child{background:#F0EAFB;border-color:#CFBCEC}
+body .overview .metrics>div:first-child{background:transparent;border-color:#CFBCEC}
 body .timing-detail{background:#F9F5E1}
 body .paper-card .tag{background:#F0DE68;color:#443D19;padding:5px 8px;border-radius:3px}
 
@@ -249,7 +249,13 @@ body .qa-graph .entity-node{fill:#E6DAFA;stroke:#B49BD9}
 body .qa-graph .entity-node~.entity-node{fill:#F0DE68;stroke:#C2A84A}
 body .qa-graph .answer-node{fill:#D4F2E4;stroke:#84BDA6;stroke-width:1.2}
 body .qa-graph .answer-caption,body .qa-graph .answer-label{fill:#263F35}
-body .overview .metrics>div:nth-child(2){background:#F9F5E1;border-color:#E3D58A}
+body .overview .metrics>div:nth-child(2){background:transparent;border-color:#E3D58A}
 body .visual-pipeline .abstract-stage{border-top-color:#9971E9}
 body .visual-pipeline .language-stage{border-top-color:#D7BC46}
 body .visual-pipeline .reasoning-stage{border-top-color:#84BDA6}
+
+/* Keep the longer illustrative answer within its node. */
+body .qa-graph .answer-label{font-size:13px}
+
+/* Pastel baseline bars; retain the darker dashed line for visibility. */
+body .bar:not(.stack-bar),body .legend-random{background:#EEDC8A;box-shadow:inset 0 0 0 1px #CDBA6D}
