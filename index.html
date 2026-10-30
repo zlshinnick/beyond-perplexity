@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js?v=warm-blue" defer></script>
   <link rel="stylesheet" href="academic.css">
-  <link rel="stylesheet" href="reference-theme.css?v=schedule-legend">
+  <link rel="stylesheet" href="reference-theme.css?v=arrival-palette">
 
 <meta name="citation_title" content="Lasting Effects of Abstract Pretraining Beyond Perplexity">
 <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.38764">
@@ -47,8 +47,8 @@
               <g fill="none" stroke="#737987" stroke-width="1.2" marker-end="url(#stack-arrow)"><path d="M29 41H76"/><path d="M89 41H136"/><path d="M149 41H196"/></g>
               <g class="operation-label"><text x="53" y="30">push A</text><text x="113" y="30">push B</text><text x="173" y="30">pop</text></g>
               <g fill="none" stroke="#c3c7cf" stroke-width="1.2"><path d="M7 88V126H43V88" stroke-dasharray="3 3"/><path d="M67 88V126H103V88"/><path d="M127 58V126H163V58"/><path d="M187 88V126H223V88"/></g>
-              <g fill="#9971E9" stroke="#7650BA"><rect x="69" y="96" width="32" height="27"/><rect x="129" y="96" width="32" height="27"/><rect x="189" y="96" width="32" height="27"/></g>
-              <rect x="129" y="66" width="32" height="27" fill="#F0DE68" stroke="#C9A444"/>
+              <g fill="#72936A" stroke="#496B43"><rect x="69" y="96" width="32" height="27"/><rect x="129" y="96" width="32" height="27"/><rect x="189" y="96" width="32" height="27"/></g>
+              <rect x="129" y="66" width="32" height="27" fill="#F0DFA5" stroke="#C7B781"/>
               <g class="stack-label"><text x="85" y="114">A</text><text x="145" y="114">A</text><text x="205" y="114">A</text><text x="145" y="84" class="token-b">B</text></g>
               <g class="state-label"><text x="25" y="145">empty</text><text x="85" y="145">A</text><text x="145" y="145">B on top</text><text x="205" y="145">A remains</text></g>
             </svg>
@@ -128,16 +128,13 @@
       <div class="analysis-text"><h3>QA gains persist through language pretraining.</h3><p>At matched language-token counts, separately fine-tuned SmolLM-135M checkpoints retain higher QA F1 with initial STACK training. This advantage is present at every evaluated checkpoint, through the full 2.69B-token language-pretraining budget.</p></div>
       <figure class="paper-figure"><div class="figure-toolbar"><span>Downstream performance throughout language pretraining</span><button class="expand-figure" data-figure="assets/lasting-gains.png" data-title="Gains throughout language pretraining">Expand figure <span aria-hidden="true">⤢</span></button></div><img src="assets/lasting-gains.png" width="2025" height="640" alt="MuSiQue, HotpotQA, and 2WikiMultiHopQA F1 across language-pretraining checkpoints. STACK stays above the random-initialization baseline in all three benchmarks." loading="lazy"><figcaption>Figure 12 · Each point is evaluated after separately fine-tuning a language-pretraining checkpoint. The lines do not represent a single continuous QA fine-tuning run.</figcaption></figure>
     </section>
-    <section class="discussion-band"><div class="container discussion"><div><div class="section-kicker">Implications and scope</div><h2>Evaluate specific capabilities <em>alongside perplexity.</em></h2></div><div class="prose"><p>Similar language-modeling loss can conceal differences in downstream learning. Here, the effects of abstract training depend on the task’s structure, the capability being evaluated, and when exposure occurs.</p><p class="limitations"><strong>Scope of the evidence.</strong> The natural-language QA experiments use SmolLM-135M and SmolLM-360M; the controlled experiments use a separate four-layer model. The findings do not establish benefits at larger scales or across all tasks. How abstract training changes the learned computations remains an open question.</p></div></div></section>
     <section class="section container resources" id="citation"><div class="section-kicker">Read, explore, build on</div><div class="paper-card"><span class="tag">PREPRINT · 2026</span><h2>Lasting Effects of Abstract Pretraining Beyond Perplexity</h2><p class="paper-authors">Zachary Shinnick · Hemanth Saratchandran · Damien Teney · Anton van den Hengel</p><a class="button primary" href="https://arxiv.org/pdf/2609.38764">Read the full paper <span aria-hidden="true">↗</span></a></div>
-      <div class="citation-box"><div class="citation-top"><h3>Citation</h3><button class="button copy-button" id="copy-citation">Copy BibTeX</button></div><pre id="bibtex">@article{shinnick2026lasting,
+      <div class="citation-box"><div class="citation-top"><h3>Citation</h3><button class="button copy-button" id="copy-citation">Copy BibTeX</button></div><pre id="bibtex">@article{shinnick2026lastingeffects,
   title   = {Lasting Effects of Abstract Pretraining Beyond Perplexity},
   author  = {Shinnick, Zachary and Saratchandran, Hemanth and Teney, Damien and van den Hengel, Anton},
   journal = {arXiv preprint arXiv:2609.38764},
   year    = {2026}
 }</pre><p id="copy-status" class="copy-status" role="status"></p></div>
-      <div class="resource-links"><a href="assets/results.json" download>Chart data <span>JSON · QA, loss curves &amp; timing</span></a><a href="https://zlshinnick.github.io/procedural-pretraining-page/">Procedural Pretraining <span>Related work on language &amp; vision</span></a><a href="https://github.com/zlshinnick/beyond-perplexity">Website source <span>GitHub repository</span></a></div>
-      <p class="release-note">Experiment code will be released upon publication, as noted in the paper.</p>
     </section>
   </main>
   <footer class="container footer"><a class="brand" href="#top">Beyond Perplexity</a><p>AIML · Adelaide University / Idiap / Metacognition AI</p><a href="#top">Back to top</a></footer>
