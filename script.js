@@ -135,25 +135,26 @@ fetch('assets/results.json').then(response => {
 });
 
 let memoryMode = 'stack';
-let memoryStep = 0;
-function renderMemory() {
-  const state = [];
-  let removed;
-  for (let step = 1; step <= memoryStep; step++) {
-    if (step === 1) state.push('A');
-    if (step === 2) state.push('B');
-    if (step === 3) removed = memoryMode === 'stack' ? state.pop() : state.shift();
-    if (step === 4) state.push('C');
+const memoryOperations = [];
+function replayMemory(mode, operations) {
+  const state = [], history = [];
+  for (const operation of operations) {
+    if (operation.type === 'push') {
+      state.push(operation.value);
+      history.push(`Push ${operation.value}.`);
+    } else {
+      const value = mode === 'stack' ? state.pop() : state.shift();
+      history.push(value === undefined ? 'Memory is empty — nothing to remove.' : `Pop removes ${value}.`);
+    }
   }
+  return { state, history };
+}
+function renderMemory() {
+  const { state, history } = replayMemory(memoryMode, memoryOperations);
   document.querySelectorAll('[data-memory]').forEach(button => {
     const selected = button.dataset.memory === memoryMode;
     button.classList.toggle('selected', selected);
     button.setAttribute('aria-pressed', String(selected));
-  });
-  document.querySelectorAll('[data-step]').forEach(button => {
-    button.classList.toggle('done', Number(button.dataset.step) <= memoryStep);
-    button.classList.toggle('current', Number(button.dataset.step) === memoryStep);
-    button.setAttribute('aria-pressed', String(Number(button.dataset.step) === memoryStep));
   });
   document.getElementById('memory-title').textContent = memoryMode === 'stack' ? 'Last in, first out.' : 'First in, first out.';
   document.getElementById('memory-description').textContent = memoryMode === 'stack'
@@ -161,19 +162,51 @@ function renderMemory() {
     : 'A pop removes the earliest added token. The operations look similar, but the underlying computation changes.';
   const visual = document.getElementById('memory-visual');
   visual.className = `memory-visual ${memoryMode}`;
+  visual.replaceChildren();
   const displayed = memoryMode === 'stack' ? [...state].reverse() : state;
-  visual.innerHTML = displayed.length ? displayed.map((token, index) => `<div class="memory-token">${token}${index === 0 ? `<small>${memoryMode === 'stack' ? 'TOP' : 'FRONT'}</small>` : ''}</div>`).join('') : '<span class="empty-memory">Empty memory</span>';
-  const messages = ['Start with an empty memory.', 'Push A into memory.', 'Push B into memory.', `Pop removes ${removed || (memoryMode === 'stack' ? 'B' : 'A')}. ${memoryMode === 'stack' ? 'A' : 'B'} remains.`, `Push C. Memory now contains ${memoryMode === 'stack' ? 'A at the bottom and C at the top. Top-to-bottom readout: C A.' : 'B at the front, followed by C.'}`];
-  document.getElementById('memory-status').textContent = messages[memoryStep];
-  document.getElementById('step-counter').textContent = `${memoryStep} / 4 operations`;
-  document.getElementById('next-operation').disabled = memoryStep === 4;
-  document.getElementById('next-operation').textContent = memoryStep === 4 ? 'Sequence complete' : 'Next operation';
-  document.getElementById('reset-demo').disabled = memoryStep === 0;
+  displayed.forEach((value, index) => {
+    const token = document.createElement('div');
+    token.className = 'memory-token';
+    token.textContent = value;
+    if (index === 0) {
+      const label = document.createElement('small');
+      label.textContent = memoryMode === 'stack' ? 'TOP' : 'FRONT';
+      token.append(label);
+    }
+    visual.append(token);
+  });
+  if (!state.length) {
+    const empty = document.createElement('span');
+    empty.className = 'empty-memory'; empty.textContent = 'Empty memory'; visual.append(empty);
+  }
+  document.getElementById('memory-status').textContent = history.at(-1) || 'Start with an empty memory.';
+  document.getElementById('step-counter').textContent = `${memoryOperations.length} operations · ${state.length} ${state.length === 1 ? 'value' : 'values'}`;
+  const list = document.getElementById('memory-history');
+  list.replaceChildren();
+  list.start = Math.max(1, history.length - 99);
+  history.slice(-100).forEach(message => {
+    const item = document.createElement('li'); item.textContent = message; list.append(item);
+  });
+  list.parentElement.querySelector('summary').textContent = history.length > 100 ? `Operation history (latest 100 of ${history.length})` : 'Operation history';
+  document.getElementById('reset-demo').disabled = !memoryOperations.length;
 }
 document.querySelectorAll('[data-memory]').forEach(button => button.addEventListener('click', () => { memoryMode = button.dataset.memory; renderMemory(); }));
-document.querySelectorAll('[data-step]').forEach(button => button.addEventListener('click', () => { memoryStep = Number(button.dataset.step); renderMemory(); }));
-document.getElementById('next-operation').addEventListener('click', () => { memoryStep = Math.min(memoryStep + 1, 4); renderMemory(); });
-document.getElementById('reset-demo').addEventListener('click', () => { memoryStep = 0; renderMemory(); });
+document.getElementById('memory-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const input = document.getElementById('memory-input');
+  const value = input.value.trim();
+  if (!value) { input.focus(); return; }
+  memoryOperations.push({ type: 'push', value });
+  renderMemory();
+  input.value = /^[A-Y]$/.test(value) ? String.fromCharCode(value.charCodeAt(0) + 1) : '';
+  input.focus();
+});
+document.getElementById('remove-memory').addEventListener('click', () => { memoryOperations.push({ type: 'pop' }); renderMemory(); });
+document.getElementById('reset-demo').addEventListener('click', () => {
+  memoryOperations.length = 0;
+  document.getElementById('memory-input').value = 'A';
+  renderMemory();
+});
 renderMemory();
 
 document.getElementById('copy-citation').addEventListener('click', async () => {

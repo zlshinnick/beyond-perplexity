@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js?v=warm-blue" defer></script>
   <link rel="stylesheet" href="academic.css">
-  <link rel="stylesheet" href="reference-theme.css?v=warm-blue">
+  <link rel="stylesheet" href="reference-theme.css?v=violet-memory">
 
 <meta name="citation_title" content="Lasting Effects of Abstract Pretraining Beyond Perplexity">
 <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.38764">
@@ -47,8 +47,8 @@
               <g fill="none" stroke="#737987" stroke-width="1.2" marker-end="url(#stack-arrow)"><path d="M29 41H76"/><path d="M89 41H136"/><path d="M149 41H196"/></g>
               <g class="operation-label"><text x="53" y="30">push A</text><text x="113" y="30">push B</text><text x="173" y="30">pop</text></g>
               <g fill="none" stroke="#c3c7cf" stroke-width="1.2"><path d="M7 88V126H43V88" stroke-dasharray="3 3"/><path d="M67 88V126H103V88"/><path d="M127 58V126H163V58"/><path d="M187 88V126H223V88"/></g>
-              <g fill="#4273B9" stroke="#3763A1"><rect x="69" y="96" width="32" height="27"/><rect x="129" y="96" width="32" height="27"/><rect x="189" y="96" width="32" height="27"/></g>
-              <rect x="129" y="66" width="32" height="27" fill="#F0CD69" stroke="#C9A444"/>
+              <g fill="#9971E9" stroke="#3763A1"><rect x="69" y="96" width="32" height="27"/><rect x="129" y="96" width="32" height="27"/><rect x="189" y="96" width="32" height="27"/></g>
+              <rect x="129" y="66" width="32" height="27" fill="#F0DE68" stroke="#C9A444"/>
               <g class="stack-label"><text x="85" y="114">A</text><text x="145" y="114">A</text><text x="205" y="114">A</text><text x="145" y="84" class="token-b">B</text></g>
               <g class="state-label"><text x="25" y="145">empty</text><text x="85" y="145">A</text><text x="145" y="145">B on top</text><text x="205" y="145">A remains</text></g>
             </svg>
@@ -86,14 +86,14 @@
       <div class="section-kicker">The central finding</div>
       <div class="overview-layout"><h2>Reasoning starts before language.</h2><div class="prose"><p>A brief warm-up on a simple abstract task based on stack memory operations improves multi-hop reasoning, with gains concentrated on sequential composition. In controlled experiments, it also accelerates learning of longer reasoning chains. These effects persist after billions of language-training tokens without a corresponding improvement in language-modeling loss.</p></div></div>
 
-      <div class="metrics"><div><strong>+3.9<span> F1</span></strong><p>MuSiQue gain after fine-tuning<br><span>SmolLM-135M · 2.69B language tokens</span></p></div><div><strong>~80M</strong><p>Additional abstract tokens<br><span>~3% at 135M · ~1.1% at 360M</span></p></div><div><strong>135M / 360M</strong><p>SmolLM-135M &amp; SmolLM-360M<br><span>Three multi-hop QA benchmarks</span></p></div></div>
+      <div class="metrics"><div><strong>+3.9<span> F1</span></strong><p>MuSiQue gain after fine-tuning<br><span>SmolLM-135M · 2.69B language tokens</span></p></div><div><strong>~80M</strong><p>Additional abstract tokens<br><span>~3% at 135M · ~1.1% at 360M</span></p></div></div>
     </section>
     <section class="section container" id="method">
       <div class="section-kicker">02 / A simple abstract task</div>
-      <div class="section-heading"><h2>An abstract task <em>with a defined memory rule.</em></h2><p>After a sequence of push and pop operations, the model predicts the remaining stack contents from top to bottom. The symbols have no natural-language meaning; the target depends on the sequence of state updates.</p></div>
+      <div class="section-heading"><h2>Simulating a stack memory.</h2><p>After a sequence of push and pop operations, the model predicts the remaining stack contents from top to bottom. The symbols have no natural-language meaning; the target depends on the sequence of state updates.</p></div>
       <div class="demo">
-        <div class="demo-explanation"><div class="segmented" role="group" aria-label="Memory rule"><button class="selected" aria-pressed="true" data-memory="stack">STACK</button><button aria-pressed="false" data-memory="queue">QUEUE</button></div><h3 id="memory-title">Last in, first out.</h3><p id="memory-description">A pop removes the most recently added token. The remaining contents depend on the whole sequence.</p><p class="demo-instruction">Step through the same operations under each rule.</p><div class="operation-list" role="group" aria-label="Jump to operation"><button data-step="1">push(A)</button><button data-step="2">push(B)</button><button data-step="3">pop()</button><button data-step="4">push(C)</button></div><div class="demo-controls"><button class="button primary" id="next-operation">Next operation</button><button class="button" id="reset-demo">Reset</button></div></div>
-        <div class="memory-display"><div class="memory-top"><span>Memory state</span><span id="step-counter">0 / 4 operations</span></div><div id="memory-visual" class="memory-visual stack"><span class="empty-memory">Empty memory</span></div><p class="memory-status" id="memory-status" aria-live="polite">Start with an empty memory.</p><div class="memory-bottom">Schematic stack and queue operations</div></div>
+        <div class="demo-explanation"><div class="segmented" role="group" aria-label="Memory rule"><button class="selected" aria-pressed="true" data-memory="stack">STACK</button><button aria-pressed="false" data-memory="queue">QUEUE</button></div><h3 id="memory-title">Last in, first out.</h3><p id="memory-description">A pop removes the most recently added token. The remaining contents depend on the whole sequence.</p><p class="demo-instruction">Add your own values, then remove them. Switch rules to replay your operations as a stack or queue.</p><form id="memory-form"><label for="memory-input">Value to add</label><div class="memory-entry"><input id="memory-input" value="A" maxlength="40" autocomplete="off" required><button class="button primary" type="submit">Push</button></div></form><div class="demo-controls"><button class="button" id="remove-memory">Pop</button><button class="button" id="reset-demo">Reset</button></div><details class="memory-history"><summary>Operation history</summary><ol id="memory-history"></ol></details></div>
+        <div class="memory-display"><div class="memory-top"><span>Memory state</span><span id="step-counter">0 operations</span></div><div id="memory-visual" class="memory-visual stack"><span class="empty-memory">Empty memory</span></div><p class="memory-status" id="memory-status" aria-live="polite">Start with an empty memory.</p><div class="memory-bottom">Schematic stack and queue operations</div></div>
       </div>
       <p class="method-note">The same operations produce different targets under STACK and QUEUE. Replacing the memory rule does not reproduce the STACK gains.</p>
     </section>
