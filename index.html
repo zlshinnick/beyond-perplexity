@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js?v=core-final" defer></script>
   <link rel="stylesheet" href="academic.css">
-  <link rel="stylesheet" href="reference-theme.css?v=crimson">
+  <link rel="stylesheet" href="reference-theme.css?v=research-diagram">
 
 <meta name="citation_title" content="Lasting Effects of Abstract Pretraining Beyond Perplexity">
 <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.38764">
@@ -41,12 +41,17 @@
       <div class="pipeline visual-pipeline" aria-label="Training pipeline: abstract warm-up, then language pretraining, then downstream fine-tuning">
         <div class="pipeline-stage abstract-stage">
           <div class="stage-number">01 · STRUCTURE</div>
-          <div class="stage-art block-art" role="img" aria-label="Illustrative abstract stack: colourful symbol blocks, with the last block on top">
-            <div class="block-orbit orbit-one"></div><div class="block-orbit orbit-two"></div>
-            <div class="stack-block block-c"><span>✦</span><small>C</small></div>
-            <div class="stack-block block-b"><span>●</span><small>B</small></div>
-            <div class="stack-block block-a"><span>◆</span><small>A</small></div>
-            <span class="stack-top">← TOP</span><div class="block-base"></div>
+          <div class="stage-art block-art">
+            <svg class="stack-timeline" viewBox="0 0 240 160" role="img" aria-label="Stack states over time: empty; push A leaves A; push B places B above A; pop removes B and leaves A.">
+              <defs><marker id="stack-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#737987"/></marker></defs>
+              <g fill="none" stroke="#737987" stroke-width="1.2" marker-end="url(#stack-arrow)"><path d="M29 41H76"/><path d="M89 41H136"/><path d="M149 41H196"/></g>
+              <g class="operation-label"><text x="53" y="30">push A</text><text x="113" y="30">push B</text><text x="173" y="30">pop</text></g>
+              <g fill="none" stroke="#c3c7cf" stroke-width="1.2"><path d="M7 88V126H43V88" stroke-dasharray="3 3"/><path d="M67 88V126H103V88"/><path d="M127 58V126H163V58"/><path d="M187 88V126H223V88"/></g>
+              <g fill="#e2efec" stroke="#528e82"><rect x="69" y="96" width="32" height="27"/><rect x="129" y="96" width="32" height="27"/><rect x="189" y="96" width="32" height="27"/></g>
+              <rect x="129" y="66" width="32" height="27" fill="#eee8f6" stroke="#8874ae"/>
+              <g class="stack-label"><text x="85" y="114">A</text><text x="145" y="114">A</text><text x="205" y="114">A</text><text x="145" y="84">B</text></g>
+              <g class="state-label"><text x="25" y="145">empty</text><text x="85" y="145">A</text><text x="145" y="145">B on top</text><text x="205" y="145">A remains</text></g>
+            </svg>
           </div>
           <h2>Abstract warm-up</h2><div class="stage-meta">STACK · ~80M tokens</div>
           <p class="visual-note">Symbols. Operations. Structure.</p>
@@ -55,7 +60,7 @@
         <div class="pipeline-stage language-stage">
           <div class="stage-number">02 · LANGUAGE</div>
           <div class="stage-art language-art">
-            <div class="text-sheet"><span class="sheet-label"><i></i> A WORLD OF WORDS</span><p>The <mark>Moon</mark> reflects sunlight.<br>Its gravity helps shape<br>the <mark class="teal-mark">ocean’s tides.</mark></p><div class="word-flow"><span>Ideas</span><b>↔</b><span>Connections</span></div></div>
+            <p class="language-example">The Moon reflects sunlight. Its gravity helps shape the ocean’s tides.</p>
           </div>
           <h2>Natural language</h2><div class="stage-meta">FineWeb-Edu · 2.69–7.2B tokens</div>
           <p class="visual-note">Learn from natural-language text.</p>
@@ -65,11 +70,14 @@
           <div class="stage-number">03 · REASONING</div>
           <div class="stage-art qa-art">
             <div class="qa-question">Which country was Mira born in?</div>
-            <div class="hop hop-one"><span class="hop-number">1</span><span>Mira was born in <strong>Luma.</strong></span></div>
-            <div class="hop-link" aria-hidden="true">↓</div>
-            <div class="hop hop-two"><span class="hop-number">2</span><span>Luma is a city in <strong>Nori.</strong></span></div>
-            <div class="hop-link" aria-hidden="true">↓</div>
-            <div class="qa-answer"><span>ANSWER</span><strong>Nori</strong><b aria-hidden="true">✓</b></div>
+            <svg class="qa-graph" viewBox="0 0 230 150" role="img" aria-label="Mira, born in Luma; Luma, located in Nori. Answer: Nori.">
+              <defs><marker id="graph-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#737987"/></marker></defs>
+              <path d="M55 36V75H90 M122.5 92V134H140" fill="none" stroke="#737987" stroke-width="1.5" marker-end="url(#graph-arrow)"/>
+              <text x="63" y="58" class="edge-label">born in</text><text x="131" y="109" class="edge-label">located in</text>
+              <rect x="10" y="8" width="80" height="30" fill="#eee8f6" stroke="#8874ae"/><text x="50" y="28" class="node-label">Mira</text>
+              <rect x="90" y="62" width="65" height="30" fill="#e2efec" stroke="#528e82"/><text x="122.5" y="82" class="node-label">Luma</text>
+              <rect x="140" y="120" width="80" height="28" fill="#fff2f4" stroke="#b4233d"/><text x="180" y="139" class="node-label answer-label">Nori</text>
+            </svg>
           </div>
           <h2>Multi-hop QA</h2><div class="stage-meta">Task-specific fine-tuning</div>
           <p class="visual-note">Connect facts to reach an answer.</p>
