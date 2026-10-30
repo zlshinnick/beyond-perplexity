@@ -69,7 +69,7 @@ body .hero .authors>div>span{margin:0}body .hero .institution-row img:last-child
 :root{--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body .hero.container{padding-left:24px;padding-right:24px}
 
 
-:root{--accent:#6942B5;--accent-dark:#51308F;--hero-accent:#252C42;--hero-fill:#F0EAFB;--takeaway-border:#CFBCEC;--soft:#F0EAFB;--hero-title:#302640;--surface:#FDFCFF;--chart-baseline:#318B81}
+:root{--accent:#6942B5;--accent-dark:#51308F;--hero-accent:#252C42;--hero-fill:#F0EAFB;--takeaway-border:#CFBCEC;--soft:#F0EAFB;--hero-title:#302640;--surface:#FDFCFF;--chart-baseline:#A68A24}
 body .section-heading h2 em,body .overview-layout h2 em{font:inherit;color:inherit}
 body .hero h1{margin-bottom:28px}
 body .hero>.authors{display:flex;gap:4px 16px;justify-content:center;flex-wrap:wrap}
@@ -220,7 +220,7 @@ body .footer{border-color:#DEDFE4}
 @media(max-width:480px){body .qa-graph .node-label{font-size:14px}body .qa-graph .edge-label{font-size:11px}}
 
 /* Small, warm highlights keep the research layout welcoming. */
-body .overview .metrics>div:first-child{background:#F2FBF5;border-color:#C1E2CD}
+body .overview .metrics>div:first-child{background:#F0EAFB;border-color:#CFBCEC}
 body .timing-detail{background:#F9F5E1}
 body .paper-card .tag{background:#F0DE68;color:#443D19;padding:5px 8px;border-radius:3px}
 
@@ -229,7 +229,7 @@ body .site-header{background:rgba(253,252,255,.96)}
 body .memory-display{min-width:0;background:#F7F3FC}
 body .memory-visual{flex:none;max-height:320px;overflow:auto;padding:12px 70px 30px 12px;align-items:center;justify-content:flex-start;min-height:180px}
 body .memory-visual.queue{padding:24px 12px 40px;align-items:center}
-body .memory-token{flex-shrink:0;min-height:49px;height:auto;max-width:160px;overflow-wrap:anywhere;padding:8px;background:#D4F2E4;border-color:#84BDA6;color:#263F35}
+body .memory-token{flex-shrink:0;min-height:49px;height:auto;max-width:160px;overflow-wrap:anywhere;padding:8px;background:#E6DAFA;border-color:#B49BD9;color:#302044}
 body .queue .memory-token{min-width:75px;width:100px}
 body #memory-form label{display:block;font-size:13px;margin-bottom:6px}
 body .memory-entry{display:flex;gap:8px;max-width:340px}
@@ -239,7 +239,17 @@ body .memory-history ol{max-height:180px;overflow:auto;padding-left:28px;overflo
 body .memory-top{gap:12px;flex-wrap:wrap}
 body .stack-timeline .stack-label text{fill:#241735}
 body .stack-timeline .stack-label .token-b{fill:#403717}
-body .schedule-language{background:#C5E8DF}
+body .schedule-language{background:#F0DE68}
 @media(max-width:768px){body .nav-links{background:#FDFCFF}}
 
 body .demo-controls{margin-top:14px}
+
+/* Palette hierarchy: violet first, yellow second, mint third. */
+body .qa-graph .entity-node{fill:#E6DAFA;stroke:#B49BD9}
+body .qa-graph .entity-node~.entity-node{fill:#F0DE68;stroke:#C2A84A}
+body .qa-graph .answer-node{fill:#D4F2E4;stroke:#84BDA6;stroke-width:1.2}
+body .qa-graph .answer-caption,body .qa-graph .answer-label{fill:#263F35}
+body .overview .metrics>div:nth-child(2){background:#F9F5E1;border-color:#E3D58A}
+body .visual-pipeline .abstract-stage{border-top-color:#9971E9}
+body .visual-pipeline .language-stage{border-top-color:#D7BC46}
+body .visual-pipeline .reasoning-stage{border-top-color:#84BDA6}
