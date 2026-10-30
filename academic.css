@@ -1,0 +1,39 @@
+/* Shared visual language of the Procedural Pretraining project page. */
+@font-face{font-family:Inter;src:url('assets/inter-latin.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Source Serif 4';src:url('assets/source-serif-400.ttf') format('truetype');font-weight:400;font-display:swap}@font-face{font-family:'Source Serif 4';src:url('assets/source-serif-600.ttf') format('truetype');font-weight:600;font-display:swap}@font-face{font-family:'Source Serif 4';src:url('assets/source-serif-700.ttf') format('truetype');font-weight:700;font-display:swap}
+:root{--sans:Inter,Arial,sans-serif;--serif:'Source Serif 4',Georgia,serif}
+h1,h2{font-family:var(--serif)}
+.institution-row{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;margin:27px auto 35px}
+.institution-row img{width:auto;height:39px;max-width:220px;object-fit:contain}
+.institution-row .adelaide{height:45px;max-width:255px}
+.paper-overview{margin:34px 0;background:#fff;border:1px solid #e0e4ec;border-radius:10px;padding:25px}
+.paper-overview img{display:block;width:100%;height:auto}
+.paper-overview figcaption{font:12px/1.7 var(--sans);color:#596170;margin-top:20px}
+.paper-overview a,.abstract-copy a{color:#285ab5;text-decoration:underline;text-underline-offset:3px}
+.abstract-copy{max-width:850px;margin:0 auto 38px;font-size:16px;line-height:1.85;color:#515969}
+.abstract-copy h2{font-size:32px;color:#202232;letter-spacing:-.025em;margin-bottom:18px}
+.abstract-copy p+p{margin-top:15px}
+@media(max-width:600px){.institution-row{gap:22px;display:grid;grid-template-columns:1fr 1fr;justify-items:center}.institution-row img,.institution-row .adelaide{max-width:145px;height:34px}.paper-overview{padding:14px;margin:27px 0}.abstract-copy{font-size:15px}.paper-overview figcaption{font-size:11px}}
+
+:root{--accent:#285ab5;--accent-dark:#193e80;--soft:#eef3fc;--canvas:#f7f8fb;--ink:#202232;--muted:#596170;--line:#dce2eb}.site-header{height:65px}.hero h1{font-weight:600;letter-spacing:-.035em}.hero h1 em{font-style:normal}.hero-summary{max-width:780px}.hero .institution-row{margin-bottom:25px}.citation-box pre{white-space:pre-wrap;overflow-wrap:anywhere}.pipeline-caption{max-width:820px;margin-left:auto;margin-right:auto}.discussion-band{background:#203b69}.discussion em{color:#c5d9fc}.discussion .section-kicker{color:#c5d9fc}.discussion .prose p{color:#e0e8f5}.discussion .prose .limitations{color:#c5d4eb}.limitations strong{color:white}.bar.stack-bar{background:#285ab5}.curve-stack{stroke:#285ab5}
+
+.hero h1{font-size:clamp(36px,5vw,60px)}
+
+@media(max-width:600px){.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hero-actions .button{justify-content:center;white-space:nowrap}.hero-actions .text-action{justify-self:center}.institution-row img:last-child:nth-child(odd){grid-column:1/-1}}
+
+/* Reference: procedural-pretraining-page/static/css/style.css.
+   Preserve its 960px column, serif title, centered logos and full-width gradient. */
+.hero.container{max-width:960px;width:calc(100% - 48px);padding:80px 0;position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc((100% - 100vw)/2);width:100vw;background:linear-gradient(180deg,var(--hero-top),var(--hero-bottom));pointer-events:none}
+.hero h1{font-family:'Source Serif 4',Georgia,serif;font-size:3.2rem;font-weight:700;line-height:1.15;letter-spacing:-.025em;color:var(--hero-title)}
+.hero .institution-row{gap:40px;margin:28px auto}.hero .institution-row img{opacity:.85}
+.hero .institution-row img:hover{opacity:1}
+.hero-summary,.hero-copy p{font-size:1.15rem;line-height:1.6;max-width:680px;margin-left:auto;margin-right:auto}
+@media(max-width:768px){.hero.container{padding-top:48px;padding-bottom:56px}.hero h1{font-size:2.2rem}.hero-summary,.hero-copy p{font-size:1rem}.hero .institution-row{gap:24px}}
+
+:root{--hero-top:#ffead2;--hero-bottom:#fff7ed;--hero-title:#91410e;--accent:#a44710;--accent-dark:#78310a;--soft:#fff2e4}
+.hero h1 em{color:#b14b0c}.hero .eyebrow{color:#8a441b}.hero-summary,.hero .affiliations{color:#704e36}.hero .authors{color:#5e361d}.hero .button:not(.primary){background:#ffffffc9;border-color:#e5be94;color:#843b0f}.hero .pipeline{background:#fff}.hero .pipeline-caption{color:#73553e}.hero .pipeline-stage{background:#fffaf5}.hero .text-action{color:#843b0f}.hero .institution-row{padding:14px 20px;background:#ffffffb8;border-radius:8px;width:fit-content;max-width:100%}
+.bar.stack-bar{background:var(--accent)}.curve-stack{stroke:var(--accent)}.paper-overview a,.abstract-copy a{color:var(--accent)}
+
+/* Clip full-bleed backgrounds at the viewport, as in the reference site. */
+html,body{overflow-x:clip}

@@ -2,56 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>Beyond Perplexity — Coming Soon</title>
-  <meta name="description" content="Lasting Effects of Abstract Pretraining Beyond Perplexity. Our paper and research page are coming soon.">
-  <meta property="og:title" content="Beyond Perplexity — Coming Soon">
-  <meta property="og:description" content="Lasting Effects of Abstract Pretraining. Paper and research page coming soon.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lasting Effects of Abstract Pretraining Beyond Perplexity</title>
+  <meta name="description" content="Initial training on abstract stack operations improves multi-hop QA after task-specific fine-tuning in 135M- and 360M-parameter language models, despite comparable or slightly worse language-modeling loss.">
+  <meta property="og:title" content="Lasting Effects of Abstract Pretraining Beyond Perplexity">
+  <meta property="og:description" content="Initial abstract training produces capability-specific gains that persist through language pretraining and appear after task-specific fine-tuning.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zlshinnick.github.io/beyond-perplexity/">
   <link rel="canonical" href="https://zlshinnick.github.io/beyond-perplexity/">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=vibrant">
-  <meta name="twitter:card" content="summary">
-  <link rel="preload" href="assets/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=vibrant">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js?v=core-final" defer></script>
+  <link rel="stylesheet" href="academic.css">
+  <link rel="stylesheet" href="reference-theme.css?v=beyond-review-final">
+
+<meta name="citation_title" content="Lasting Effects of Abstract Pretraining Beyond Perplexity">
+<meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.38764">
 </head>
 <body>
-  <a class="skip-link" href="#top">Skip to content</a>
-  <header>
-    <nav class="header-inner" aria-label="Main navigation">
-      <a class="brand" href="./">Beyond Perplexity</a>
-      <a class="previous" href="https://zlshinnick.github.io/procedural-pretraining-page/">Procedural Pretraining <span aria-hidden="true">↗</span></a>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#top"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 8 14 3 24 8 14 13Z M4 14 14 19 24 14 M4 20 14 25 24 20"/></svg><span>Beyond Perplexity</span></a>
+      <button aria-label="Toggle navigation" class="menu-toggle" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#analysis">Analysis</a><a class="nav-paper" href="https://arxiv.org/pdf/2609.38764" target="_blank" rel="noopener">Read paper <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3h6l4 4v10H6zM12 3v5h4M9 11h4M9 14h4"/></svg></a></div>
     </nav>
   </header>
+  <main>
+    <section class="hero container" id="top" aria-labelledby="paper-title">
+      <div class="eyebrow"><span>arXiv preprint</span><span class="eyebrow-divider"></span><span>2026</span></div>
+      <h1 id="paper-title">Lasting Effects of Abstract Pretraining Beyond Perplexity</h1>
 
-  <main id="top">
-      <div class="identity" aria-hidden="true">
-        <img src="assets/hero-mark.svg?v=vibrant" width="88" height="88" alt="">
-      </div>
-      <p class="status"><span aria-hidden="true"></span>Coming soon</p>
-      <h1>Beyond Perplexity</h1>
-      <p class="tagline">Lasting Effects of Abstract Pretraining</p>
 
-      <div class="authors" aria-label="Authors">
-        <a href="mailto:zachary.shinnick@adelaide.edu.au">Zachary Shinnick<sup>1,*</sup></a>
-        <span>Hemanth Saratchandran<sup>1</sup></span>
-        <span>Damien Teney<sup>2</sup></span>
-        <span>Anton van den Hengel<sup>1,3</sup></span>
-      </div>
-      <div class="affiliations" aria-label="Affiliations">
-        <span><sup>1</sup> AIML, Adelaide University</span>
-        <span><sup>2</sup> Idiap Research Institute</span>
-        <span><sup>3</sup> Metacognition AI</span>
-      </div>
-      <div class="institution-logos" aria-label="Research institutions">
-        <img class="logo-adelaide-aiml" src="assets/logo-adelaide-aiml.png" alt="Adelaide University — Australian Institute for Machine Learning" width="1875" height="834">
-        <img class="logo-idiap" src="assets/logo-idiap.png" alt="Idiap Research Institute" width="151" height="50">
-        <img class="logo-metacognition" src="assets/logo-metacognition.png" alt="Metacognition" width="800" height="245">
-      </div>
+<div class="institution-row" aria-label="Research institutions"><img class="adelaide" src="assets/logo-adelaide-aiml.png" alt="Adelaide University and Australian Institute for Machine Learning"><img src="assets/logo-idiap.png" alt="Idiap Research Institute"><img src="assets/logo-metacognition.png" alt="Metacognition AI"></div>
 
-      <p class="note">The paper and research page will be available here soon.</p>
+<div class="authors"><a href="mailto:zachary.shinnick@adelaide.edu.au">Zachary Shinnick<sup>1,*</sup></a><span>Hemanth Saratchandran<sup>1</sup></span><span>Damien Teney<sup>2</sup></span><span>Anton van den Hengel<sup>1,3</sup></span></div><div class="affiliations"><span><sup>1</sup> AIML, Adelaide University</span><span><sup>2</sup> Idiap Research Institute</span><span><sup>3</sup> Metacognition AI</span></div>
+      <div class="hero-actions"><a class="button primary" href="https://arxiv.org/pdf/2609.38764">Read the paper <span aria-hidden="true">↗</span></a><a class="button" href="#method">See how it works</a></div>
+      <div class="pipeline" aria-label="Training pipeline: abstract warm-up, then language pretraining, then downstream fine-tuning">
+        <div class="pipeline-stage abstract-stage"><div class="stage-number">01 <span>Initial abstract training</span></div><div class="token-demo stack-teaser" aria-hidden="true"><span class="answer">C</span><span class="answer">A</span></div><h2>Abstract warm-up</h2><div class="stage-meta">STACK · ~80M tokens</div></div>
+        <span class="pipeline-connector" aria-hidden="true">→</span>
+        <div class="pipeline-stage language-stage"><div class="stage-number">02 <span>Standard pretraining</span></div><div class="language-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div><h2>Natural language</h2><div class="stage-meta">FineWeb-Edu · 2.69–7.2B tokens</div></div>
+        <span class="pipeline-connector" aria-hidden="true">→</span>
+        <div class="pipeline-stage reasoning-stage"><div class="stage-number">03 <span>Task-specific fine-tuning</span></div><div class="reasoning-chain" aria-hidden="true"><b>A</b><i></i><b>B</b><i></i><b>C</b><i></i><b>?</b></div><h2>Multi-hop QA</h2><div class="stage-meta">Task-specific fine-tuning</div></div>
+      </div>
+      <p class="pipeline-caption">~80M additional abstract tokens, followed by 2.69B language tokens at 135M or 7.2B at 360M. Both conditions use the same language budget and task-specific fine-tuning.</p>
+    </section>
+    <section class="overview section container" id="overview">
+      <div class="section-kicker">The central finding</div>
+      <div class="overview-layout"><h2>Similar perplexity. <em>Different capabilities.</em></h2><div class="prose"><p>We compare language-only pretraining from random initialization with an additional initial phase on abstract stack operations. Both models then receive the same language-pretraining budget and task-specific fine-tuning.</p><p>Initial STACK training improves multi-hop QA, with gains concentrated on sequential composition. In controlled experiments, it also accelerates learning of longer reasoning chains. These effects persist through language pretraining without a corresponding improvement in language-modeling loss.</p></div></div>
+
+      <div class="metrics"><div><strong>+3.9<span> F1</span></strong><p>MuSiQue gain after fine-tuning<br><span>SmolLM-135M · 2.69B language tokens</span></p></div><div><strong>~80M</strong><p>Additional abstract tokens<br><span>~3% at 135M · ~1.1% at 360M</span></p></div><div><strong>135M / 360M</strong><p>SmolLM-135M &amp; SmolLM-360M<br><span>Three multi-hop QA benchmarks</span></p></div></div>
+    </section>
+    <section class="section container" id="method">
+      <div class="section-kicker">02 / A simple abstract task</div>
+      <div class="section-heading"><h2>An abstract task <em>with a defined memory rule.</em></h2><p>After a sequence of push and pop operations, the model predicts the remaining stack contents from top to bottom. The symbols have no natural-language meaning; the target depends on the sequence of state updates.</p></div>
+      <div class="demo">
+        <div class="demo-explanation"><div class="segmented" role="group" aria-label="Memory rule"><button class="selected" aria-pressed="true" data-memory="stack">STACK</button><button aria-pressed="false" data-memory="queue">QUEUE</button></div><h3 id="memory-title">Last in, first out.</h3><p id="memory-description">A pop removes the most recently added token. The remaining contents depend on the whole sequence.</p><p class="demo-instruction">Step through the same operations under each rule.</p><div class="operation-list" role="group" aria-label="Jump to operation"><button data-step="1">push(A)</button><button data-step="2">push(B)</button><button data-step="3">pop()</button><button data-step="4">push(C)</button></div><div class="demo-controls"><button class="button primary" id="next-operation">Next operation</button><button class="button" id="reset-demo">Reset</button></div></div>
+        <div class="memory-display"><div class="memory-top"><span>Memory state</span><span id="step-counter">0 / 4 operations</span></div><div id="memory-visual" class="memory-visual stack"><span class="empty-memory">Empty memory</span></div><p class="memory-status" id="memory-status" aria-live="polite">Start with an empty memory.</p><div class="memory-bottom">Schematic stack and queue operations</div></div>
+      </div>
+      <p class="method-note">The same operations produce different targets under STACK and QUEUE. Replacing the memory rule does not reproduce the STACK gains.</p>
+    </section>
+    <section class="section tinted" id="results">
+      <div class="container">
+        <div class="section-kicker">01 / Beyond the language-modeling loss</div>
+        <div class="section-heading"><h2>Beyond language-modeling loss</h2><p>After benchmark-specific fine-tuning, MuSiQue and HotpotQA improve at both model sizes. 2WikiMultiHopQA improves at 135M and is approximately unchanged at 360M. Compare QA F1 with language-pretraining loss below.</p></div>
+        <div class="results-panel">
+          <div class="panel-top"><div><h3>Multi-hop question answering</h3></div><div class="segmented" role="group" aria-label="Model size"><button class="selected" aria-pressed="true" data-model="135M">135M</button><button aria-pressed="false" data-model="360M">360M</button></div></div>
+          <div class="chart-legend"><span><i class="legend-random"></i>Random initialization</span><span><i class="legend-stack"></i>STACK warm-up</span></div>
+          <div class="benchmark-charts" id="benchmark-charts" aria-live="polite"></div>
+          <div class="loss-layout"><div class="loss-copy"><div class="mini-kicker">Meanwhile, during pretraining</div><h3>Language loss does not<br>capture the QA gains.</h3><p id="loss-description">At 135M, validation-loss curves converge to essentially the same value.</p><div class="loss-endpoints" id="loss-endpoints"></div></div><div class="loss-figure"><div class="small-label">Validation cross-entropy loss · lower is better</div><div id="loss-chart"></div><label class="loss-slider-label" for="loss-step">Inspect a training checkpoint <output id="loss-step-label"></output></label><input id="loss-step" type="range" min="0" max="53" value="53" aria-label="Language pretraining checkpoint"><div class="checkpoint-values" id="checkpoint-values" aria-live="polite"></div></div></div>
+          <noscript><p>At 135M, random initialization → STACK yields MuSiQue 38.10 → 41.99, HotpotQA 41.34 → 43.54, and 2WikiMultiHopQA 50.37 → 51.24 F1. At 360M: 44.26 → 46.31, 51.13 → 51.89, and 54.81 → 54.71, respectively. Enable JavaScript to explore the interactive charts, or <a href="assets/results.json">read the data</a>.</p></noscript>
+        </div>
+      </div>
+    </section>
+    <section class="section tinted" id="analysis">
+      <div class="container">
+        <div class="section-kicker">03 / What transfers</div>
+        <div class="section-heading"><h2>Gains concentrate on <em>sequential composition.</em></h2><p>The improvements concentrate on sequential composition: answering one question supplies the information needed to answer the next.</p></div>
+        <div class="reasoning-types"><div class="reasoning-type"><span class="mini-kicker">Consistent gains</span><h3>Dependent reasoning chains</h3><svg viewBox="0 0 330 80" role="img" aria-label="A sequential chain of four dependent reasoning steps"><path d="M50 40H280"/><circle cx="40" cy="40" r="19"/><circle cx="122" cy="40" r="19"/><circle cx="204" cy="40" r="19"/><circle cx="286" cy="40" r="19"/><text x="40" y="45">1</text><text x="122" y="45">2</text><text x="204" y="45">3</text><text x="286" y="45">4</text></svg><p>Each step uses the previous answer.</p></div><div class="reasoning-type muted-type"><span class="mini-kicker">No consistent gain</span><h3>Merging or comparing facts</h3><svg viewBox="0 0 330 80" role="img" aria-label="Two independent facts merging into one answer"><path d="M95 17 204 40 95 63"/><circle cx="80" cy="17" r="15"/><circle cx="80" cy="63" r="15"/><circle cx="222" cy="40" r="19"/><text x="80" y="22">A</text><text x="80" y="68">B</text><text x="222" y="45">?</text></svg><p>Separate branches contribute to an answer.</p></div></div>
+        <figure class="paper-figure"><div class="figure-toolbar"><span>Performance by question structure</span><button class="expand-figure" data-figure="assets/question-structure.png" data-title="F1 by question structure">Expand figure <span aria-hidden="true">⤢</span></button></div><img src="assets/question-structure.png" width="1942" height="633" alt="Question-type F1 comparison. STACK gains appear in every chain-dominated category; merge and comparison categories show mixed effects." loading="lazy"><figcaption>Figure 3 · Mean token-level F1 by question type. Annotations show relative differences from the language-only baseline. Gains are consistent across chain-dominated categories, with no consistent benefit for merge or comparison categories.</figcaption></figure>
+        <div class="analysis-text"><h3>Faster learning on controlled multi-hop queries.</h3><p>DEPO asks a model to follow one to four links through a directed cycle. After STACK and language pretraining, the evaluated four-layer models learn this task faster and reach near-perfect accuracy at all tested hop counts. The language-only baselines still struggle with four-hop queries at the end of fine-tuning.</p></div>
+        <figure class="paper-figure"><div class="figure-toolbar"><span>Controlled multi-hop reasoning · DEPO</span><button class="expand-figure" data-figure="assets/depo-learning.png" data-title="DEPO learning curves">Expand figure <span aria-hidden="true">⤢</span></button></div><img src="assets/depo-learning.png" width="1952" height="512" alt="DEPO learning curves compare language-only baselines with STACK then language. STACK warm-up accelerates acquisition across all four hop counts." loading="lazy"><figcaption>Figure 4 · A four-layer GPT-2-style model, with TinyStories or FineWeb-Edu pretraining. The horizontal axis measures downstream DEPO training tokens. This is a controlled synthetic task, separate from the SmolLM QA experiments.</figcaption></figure>
+      </div>
+    </section>
+    <section class="section container" id="timing">
+      <div class="section-kicker">04 / When the data appears matters</div>
+      <div class="section-heading"><h2>Initial exposure <em>produces the largest gain.</em></h2><p>The same abstract task has a different effect depending on when it appears. An initial phase produces the largest gain among the tested single-phase schedules.</p></div>
+      <div class="timing-panel"><div class="timing-chart-area"><h3>One STACK phase at different insertion points.</h3><p class="small-label">Mean Δ F1 across three QA benchmarks · SmolLM-135M</p><div id="timing-chart" class="timing-chart" role="group" aria-label="Select when STACK is introduced"></div><div class="timing-axis">Insertion point through language pretraining</div></div><div class="timing-detail" aria-live="polite" aria-atomic="true"><span class="mini-kicker" id="timing-label">Before language</span><strong id="timing-value">+2.32<span> F1 points</span></strong><p id="timing-description">Initial STACK training gives the largest mean QA gain among the tested single-phase schedules.</p><div class="training-schedule" id="training-schedule" aria-label="STACK then language"></div><div class="chart-legend"><span><i class="legend-stack"></i>STACK</span><span><i class="legend-language"></i>Language</span></div></div></div>
+      <p class="figure-caption">Mean change in F1 across the three QA benchmarks at each tested insertion point (Figure 9). The initial +2.32 is the mean of the three QA gains reported above. STACK uses a separate optimizer; intermediate insertions pause language pretraining and its learning-rate schedule, which then resume.</p>
+<p class="figure-caption"><strong>More exposure is not always better.</strong> Adding three further STACK phases improves HotpotQA and 2WikiMultiHopQA but reduces MuSiQue F1, while increasing the abstract-training budget (paper, Figure 11).</p>
+      <div class="analysis-text"><h3>QA gains persist through language pretraining.</h3><p>At matched language-token counts, separately fine-tuned SmolLM-135M checkpoints retain higher QA F1 with initial STACK training. This advantage is present at every evaluated checkpoint, through the full 2.69B-token language-pretraining budget.</p></div>
+      <figure class="paper-figure"><div class="figure-toolbar"><span>Downstream performance throughout language pretraining</span><button class="expand-figure" data-figure="assets/lasting-gains.png" data-title="Gains throughout language pretraining">Expand figure <span aria-hidden="true">⤢</span></button></div><img src="assets/lasting-gains.png" width="2025" height="640" alt="MuSiQue, HotpotQA, and 2WikiMultiHopQA F1 across language-pretraining checkpoints. STACK stays above the random-initialization baseline in all three benchmarks." loading="lazy"><figcaption>Figure 12 · Each point is evaluated after separately fine-tuning a language-pretraining checkpoint. The lines do not represent a single continuous QA fine-tuning run.</figcaption></figure>
+    </section>
+    <section class="discussion-band"><div class="container discussion"><div><div class="section-kicker">Implications and scope</div><h2>Evaluate specific capabilities <em>alongside perplexity.</em></h2></div><div class="prose"><p>Similar language-modeling loss can conceal differences in downstream learning. Here, the effects of abstract training depend on the task’s structure, the capability being evaluated, and when exposure occurs.</p><p class="limitations"><strong>Scope of the evidence.</strong> The natural-language QA experiments use SmolLM-135M and SmolLM-360M; the controlled experiments use a separate four-layer model. The findings do not establish benefits at larger scales or across all tasks. How abstract training changes the learned computations remains an open question.</p></div></div></section>
+    <section class="section container resources" id="citation"><div class="section-kicker">Read, explore, build on</div><div class="paper-card"><span class="tag">PREPRINT · 2026</span><h2>Lasting Effects of Abstract Pretraining Beyond Perplexity</h2><p class="paper-authors">Zachary Shinnick · Hemanth Saratchandran · Damien Teney · Anton van den Hengel</p><a class="button primary" href="https://arxiv.org/pdf/2609.38764">Read the full paper <span aria-hidden="true">↗</span></a></div>
+      <div class="citation-box"><div class="citation-top"><h3>Citation</h3><button class="button copy-button" id="copy-citation">Copy BibTeX</button></div><pre id="bibtex">@article{shinnick2026lasting,
+  title   = {Lasting Effects of Abstract Pretraining Beyond Perplexity},
+  author  = {Shinnick, Zachary and Saratchandran, Hemanth and Teney, Damien and van den Hengel, Anton},
+  journal = {arXiv preprint arXiv:2609.38764},
+  year    = {2026}
+}</pre><p id="copy-status" class="copy-status" role="status"></p></div>
+      <div class="resource-links"><a href="assets/results.json" download>Chart data <span>JSON · QA, loss curves &amp; timing</span></a><a href="https://zlshinnick.github.io/procedural-pretraining-page/">Procedural Pretraining <span>Related work on language &amp; vision</span></a><a href="https://github.com/zlshinnick/beyond-perplexity">Website source <span>GitHub repository</span></a></div>
+      <p class="release-note">Experiment code will be released upon publication, as noted in the paper.</p>
+    </section>
   </main>
+  <footer class="container footer"><a class="brand" href="#top">Beyond Perplexity</a><p>AIML · Adelaide University / Idiap / Metacognition AI</p><a href="#top">Back to top</a></footer>
+  <dialog id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="dialog-heading"><h2 id="figure-dialog-title">Research figure</h2><button class="button" id="close-figure">Close <span aria-hidden="true">×</span></button></div><div class="dialog-image-wrap"><img id="expanded-figure" alt=""></div><a id="original-figure" target="_blank" rel="noopener">Open full-resolution image</a></dialog>
 </body>
 </html>
