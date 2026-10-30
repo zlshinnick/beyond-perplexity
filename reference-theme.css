@@ -239,7 +239,7 @@ body .memory-history ol{max-height:180px;overflow:auto;padding-left:28px;overflo
 body .memory-top{gap:12px;flex-wrap:wrap}
 body .stack-timeline .stack-label text{fill:#241735}
 body .stack-timeline .stack-label .token-b{fill:#403717}
-body .schedule-language{background:#F0DE68}
+body .schedule-language,body .legend-language{background:#F0DE68}
 @media(max-width:768px){body .nav-links{background:#FDFCFF}}
 
 body .demo-controls{margin-top:14px}
